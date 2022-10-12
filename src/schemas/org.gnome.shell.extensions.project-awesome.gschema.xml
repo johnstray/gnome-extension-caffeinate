@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="caffeinate">
+	<schema path="/org/gnome/shell/extensions/caffeinate/" id="org.gnome.shell.extensions.caffeinate">
+		<key name="prefs-visible-page" type="i">
+			<default>0</default>
+			<summary>Handles which page to open in Caffeinate Settings</summary>
+			<description>See prefs.js PrefsVisiblePage</description>
+		</key>
+	    <key name="debug-logging" type="b">
+	        <default>false</default>
+	        <summary>Debug Logging</summary>
+	        <description>Enables debug logging for the extension</description>
+	    </key>
+	    <key name="show-in-quickmenu" type="b">
+	        <default>true</default>
+	        <summary>Show in QuickSettings</summary>
+	        <description>Show the caffeinate menu in GNOME's Quick Settings menu</description>
+	    </key>
+	    <key name="caffeinate-enable-notifications" type="b">
+	        <default>true</default>
+	        <summary>Show notifications</summary>
+	        <description>Show notifications when caffeination is enabled or disabled</description>
+	    </key>
+	    <key name="caffeinate-restore-state" type="b">
+	        <default>false</default>
+	        <summary>Restore state after reboot</summary>
+	        <description>Restore the previous state of caffeination after a reboot</description>
+	    </key>
+	    <key name="caffeinate-enable-when-fullscreen" type="b">
+	        <default>false</default>
+	        <summary>Enable when fullscreen application running</summary>
+	        <description>Automatically enable caffeination when a full screen application is running</description>
+	    </key>
+	    <key name="caffeinate-pause-nightlight" type="b">
+	        <default>false</default>
+	        <summary>Pause/Resume NightLight if enabled</summary>
+	        <description>Pause or resume the operation of Night Light when it is enabled</description>
+	    </key>
+	    <key name="caffeinate-enable-when-charging" type="b">
+	        <default>false</default>
+	        <summary>Enable when this device is charging</summary>
+	        <description>Enable caffeination when this device is connected to an AC power source</description>
+	    </key>
+	    <key name="caffeinate-enable-when-docked" type="b">
+	        <default>false</default>
+	        <summary>Enable when this device is docked</summary>
+	        <description>Enable when this device is on AC power and connected to external monitors</description>
+	    </key>
+	    <key name="gamemode-enable-notifications" type="b">
+	        <default>true</default>
+	        <summary>Show notifications</summary>
+	        <description>Show notifications when GameMode is enabled or disabled</description>
+	    </key>
+	    <key name="gamemode-enable-when-fullscreen" type="b">
+	        <default>false</default>
+	        <summary>Enable when fullscreen application running</summary>
+	        <description>Automatically enable GameMode when a full screen application is running</description>
+	    </key>
+	</schema>
+</schemalist>
