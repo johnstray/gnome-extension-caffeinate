@@ -25,7 +25,7 @@
 <!-- This is intentional to create blank space -->
 <p>&nbsp;</p>
 
-![Screenshot of Settings Window](/docs/screenshot.png?raw=true "Screenshot of Settings Window")
+![Screenshot of Settings Window](/docs/Screenshot.png?raw=true "Screenshot of Settings Window")
 
 ## About
 This Gnome Shell Extension combines the functionality of the original similarly named extension with GameMode support. It has been written from the ground up for Gnome 43+. I welcome any and all suggestions for future improvements, and if you find any bugs, then please let me know.
