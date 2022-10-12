@@ -6,5 +6,6 @@
     "version" : 0.1,
     "shell-version" : [ "43" ],
     "settings-schema" : "org.gnome.shell.extensions.caffeinate",
+    "gettext-domain" : "caffeinate@gnome-extensions.johnstray.com",
     "session-modes": ["user", "unlock-dialog"]
 }

@@ -31,6 +31,10 @@ const shellVersion = Number.parseInt(major);
 // Import Preference pages
 const PrefPages = Me.imports.preferences;
 
+// Initialize translations
+const Gettext = imports.gettext.domain( Me.metadata.gettext-domain );
+const _ = Gettext.gettext;
+
 // Preferences Pages
 const { AboutPage } = PrefPages.about;
 const { CaffeinatePage } = PrefPages.caffeinate;
@@ -43,9 +47,10 @@ const PrefsVisiblePage = {
 
 /**
  * Initialize the preferences dialog
- * We have nothing to do here, but this is required
  */
-function init() {}
+function init() {
+    ExtensionUtils.initTranslations( Me.metadata.gettext-domain );
+}
 
 /**
  * Populate the preferences window
@@ -107,7 +112,7 @@ const Preferences = class {
         }
 
         // Set the title of the preferences window
-        window.set_title( "Caffinate Settings" );
+        window.set_title( _("Caffinate Settings") );
 
         // Enable the ability to search for settings in the window
         window.set_search_enabled( true );

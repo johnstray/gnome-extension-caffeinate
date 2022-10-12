@@ -27,6 +27,11 @@ const Me = ExtensionUtils.getCurrentExtension();
 // Import Modules
 const CaffeinateMenu = Me.imports.modules.CaffeinateMenu;
 
+
+// Initialize translations
+const Gettext = imports.gettext.domain( Me.metadata.gettext-domain );
+const _ = Gettext.gettext;
+
 // Logging debug and error message control
 var CAFFEINATE_DEBUG_MSG = "Debug";
 var CAFFEINATE_ERROR_MSG = "Error";
@@ -191,5 +196,6 @@ class Extension {
  * Initialize the Extension
  */
 function init() {
+    ExtensionUtils.initTranslations( Me.metadata.gettext-domain );
     return new Extension();
 }

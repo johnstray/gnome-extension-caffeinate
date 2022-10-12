@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="caffeinate">
+<schemalist gettext-domain="caffeinate@gnome-extensions.johnstray.com">
 	<schema path="/org/gnome/shell/extensions/caffeinate/" id="org.gnome.shell.extensions.caffeinate">
 		<key name="prefs-visible-page" type="i">
 			<default>0</default>
