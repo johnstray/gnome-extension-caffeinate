@@ -16,6 +16,11 @@
 	        <summary>Show in QuickSettings</summary>
 	        <description>Show the caffeinate menu in GNOME's Quick Settings menu</description>
 	    </key>
+	    <key name="show-indicator" type="b">
+	        <default>true</default>
+	        <summary>Show Panel Indicator icon</summary>
+	        <description>Show the caffeinate indicator icon in the Gnome panel</description>
+	    </key>
 	    <key name="caffeinate-enable-notifications" type="b">
 	        <default>true</default>
 	        <summary>Show notifications</summary>
