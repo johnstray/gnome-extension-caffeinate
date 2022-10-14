@@ -1,0 +1,51 @@
+{
+  "name": "gnome-shell-extension-caffeinate",
+  "version": "1.0.0",
+  "description": "Inhibits system sleep and screensaver, with added GameMode support.",
+  "homepage": "https://github.com/johnstray/gnome-extension-caffeinate#readme",
+  "repository": "github:johnstray/gnome-extension-caffeinate",
+  "license": "GPL-3.0-or-later",
+  "keywords": [],
+  "author": {
+    "name": "John Stray",
+    "email": "github@johnstray.com",
+    "url": "https://johnstray.com"
+  },
+  "bugs": {
+    "url": "https://github.com/johnstray/gnome-extension-caffeinate/issues",
+    "email": "github@johnstray.com"
+  },
+  "contributors": [
+    {
+        "name": "John Stray",
+        "email": "github@johnstray.com",
+        "url": "https://johnstray.com"
+    }
+  ],
+  "funding": [
+    {
+        "type": "paypal",
+        "url": "https://paypal.me/JohnStray"
+    },
+    {
+        "type": "github",
+        "url": "https://github.com/sponsors/johnstray"
+    }
+  ],
+  "main": "extension.js",
+  "directories": {
+    "doc": "docs",
+    "src": "src"
+  },
+  "scripts": {
+    "test-lint": "eslint .",
+    "test": "npm run test-lint"
+  },
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-plugin-jsdoc": "^39.3.6"
+  },
+  "os": [
+    "linux"
+  ]
+}
