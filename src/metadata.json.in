@@ -1,0 +1,12 @@
+{
+    "name" : "Caffeinate",
+    "description" : "Inhibits system sleep and screensaver, with added GameMode support.",
+    "url" : "https://johnstray.com/gnome-extensions/caffeinate/",
+    "uuid" : "@UUID@",
+    "version" : @VERSION@,
+    "shell-version" : [ "43" ],
+    "settings-schema" : "@DNS@",
+    "gettext-domain" : "@UUID@",
+    "session-modes": ["user", "unlock-dialog"],
+    "build-type": "@BUILD_TYPE@"
+}

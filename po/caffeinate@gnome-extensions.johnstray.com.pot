@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: caffeinate@gnome-extensions.johnstray.com\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: gnome-extensions@johnstray.com\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"

@@ -8,17 +8,17 @@
   "keywords": [],
   "author": {
     "name": "John Stray",
-    "email": "github@johnstray.com",
+    "email": "gnome-extensions@johnstray.com",
     "url": "https://johnstray.com"
   },
   "bugs": {
     "url": "https://github.com/johnstray/gnome-extension-caffeinate/issues",
-    "email": "github@johnstray.com"
+    "email": "gnome-extensions@johnstray.com"
   },
   "contributors": [
     {
         "name": "John Stray",
-        "email": "github@johnstray.com",
+        "email": "gnome-extensions@johnstray.com",
         "url": "https://johnstray.com"
     }
   ],
