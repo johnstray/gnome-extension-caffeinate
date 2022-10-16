@@ -28,8 +28,8 @@ rules:
       allow: [^vfunc_, ^on_, _instance_init]
   comma-dangle:
     - error
-    - arrays: always-multiline
-      objects: always-multiline
+    - arrays: only-multiline
+      objects: only-multiline
       functions: never
   comma-spacing:
     - error
@@ -179,7 +179,7 @@ rules:
     - error
     - vars: 'local'
     # Vars use a suffix _ instead of a prefix because of file-scope private vars
-      varsIgnorePattern: (^unused|_$)
+      varsIgnorePattern: (^unused|init|enable|disable|fillPreferencesWindow|_$)
       argsIgnorePattern: ^(unused|_)
   no-useless-call: error
   no-useless-computed-key: error

@@ -1,31 +1,30 @@
+/* exported Client */
 /**
-    Caffeinate Gnome Shell Extension
-    Authors: John D. Stray <gnome-extensions@johnstray.com>
-             Christian J. Kellner <christian@kellner.me>
-    
-    GameMode Client Interface
-    Adapted from 'GameMode GNOME Shell Extension'
-    <https://github.com/gicmo/gamemode-extension/blob/master/client.js>
-    
-    Copyright © 2019 Red Hat, Inc
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 2 of the License, or
-    (at your option) any later version.
-    
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-    
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-**/
+ *  Caffeinate Gnome Shell Extension
+ *  Authors: John D. Stray <gnome-extensions@johnstray.com>
+ *           Christian J. Kellner <christian@kellner.me>
+ *
+ *  GameMode Client Interface
+ *  Adapted from 'GameMode GNOME Shell Extension'
+ *  <https://github.com/gicmo/gamemode-extension/blob/master/client.js>
+ *
+ *  Copyright © 2019 Red Hat, Inc
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
-const Lang = imports.lang;
 const Signals = imports.signals;
 
 
@@ -49,26 +48,24 @@ const GAMEMODE_DBUS_IFACE = 'com.feralinteractive.GameMode';
 const GAMEMODE_DBUS_PATH = '/com/feralinteractive/GameMode';
 
 var Client = class {
-
     constructor(readyCallback) {
         this._readyCallback = readyCallback;
         this._proxy = null;
 
         let nodeInfo = Gio.DBusNodeInfo.new_for_xml(GameModeClientInterface);
         Gio.DBusProxy.new(Gio.DBus.session,
-                          Gio.DBusProxyFlags.DO_NOT_AUTO_START,
-                          nodeInfo.lookup_interface(GAMEMODE_DBUS_IFACE),
-                          GAMEMODE_DBUS_NAME,
-                          GAMEMODE_DBUS_PATH,
-                          GAMEMODE_DBUS_IFACE,
-                          null,
-                          this._onProxyReady.bind(this));
+            Gio.DBusProxyFlags.DO_NOT_AUTO_START,
+            nodeInfo.lookup_interface(GAMEMODE_DBUS_IFACE),
+            GAMEMODE_DBUS_NAME,
+            GAMEMODE_DBUS_PATH,
+            GAMEMODE_DBUS_IFACE,
+            null,
+            this._onProxyReady.bind(this));
 
         this.client_count = 0;
     }
 
     _onProxyReady(o, res) {
-
         try {
             this._proxy = Gio.DBusProxy.new_finish(res);
         } catch (e) {
@@ -93,16 +90,16 @@ var Client = class {
         if (!('ClientCount' in unpacked))
             return;
 
-        let before_n = this.client_count;
-        let before_on = this.client_count > 0;
+        let beforeN = this.client_count;
+        let beforeOn = this.client_count > 0;
         this.client_count = this._proxy.ClientCount;
 
-        let after_on = this.client_count > 0;
+        let afterOn = this.client_count > 0;
 
-        if (before_on !== after_on)
-            this.emit('state-changed', after_on);
+        if (beforeOn !== afterOn)
+            this.emit('state-changed', afterOn);
 
-        if (before_n !== this.client_count)
+        if (beforeN !== this.client_count)
             this.emit('count-changed', this.client_count);
     }
 
@@ -117,7 +114,7 @@ var Client = class {
         this._proxy = null;
     }
 
-    get clientCount () {
+    get clientCount() {
         return this._proxy ? this._proxy.ClientCount : 0;
     }
 
