@@ -1,22 +1,39 @@
 #!/bin/sh
 
-# SPDX-FileCopyrightText: 2022 John Stray <gnome-extensions AT johnstray.com>
-# SPDX-License-Identifier: GPL-3.0-or-later
+export DESTDIR="${MESON_BUILD_ROOT}/_zip"
 
-ZIP_EXE=$1
-UUID=$2
-PACK_DIR=$3
+ZIP_DIR="${MESON_BUILD_ROOT}/${UUID}"
+ZIP_FILE="${MESON_BUILD_ROOT}/${UUID}.zip"
 
-# Remove previous archive
-rm -f $PACK_DIR/$UUID.zip
 
-# Create the destination directory
-mkdir -p $PACK_DIR
+# PRE-CLEAN
+rm -rf ${DESTDIR} ${ZIP_DIR} ${ZIP_FILE}
 
-# Create archive of extension
-cd $MESON_BUILD_ROOT/$UUID
-$ZIP_EXE -r $PACK_DIR/$UUID.zip *
+# BUILD
+if ! ninja -C ${MESON_BUILD_ROOT} install > /dev/null; then
+  exit 1;
+fi
 
-# Remove unarchived files
-rm -rf $MESON_BUILD_ROOT/$UUID
+# COPY
+mkdir -p ${ZIP_DIR}
+cp -pr ${DESTDIR}/${DATADIR}/gnome-shell/extensions/${UUID}/* ${ZIP_DIR}
+cp -pr ${DESTDIR}/${LOCALEDIR} ${ZIP_DIR}
+cp -pr ${DESTDIR}/${GSCHEMADIR} ${ZIP_DIR}
+glib-compile-schemas ${ZIP_DIR}/schemas
 
+# COMPRESS
+cd ${ZIP_DIR}
+zip -qr ${ZIP_FILE} .
+echo "Extension saved to ${ZIP_FILE}"
+
+# INSTALL
+if [ "$INSTALL" = true ]; then
+    EXTENSIONS_DIR="${HOME}/.local/share/gnome-shell/extensions"
+    INSTALL_DIR="${EXTENSIONS_DIR}/${UUID}"
+
+    mkdir -p ${EXTENSIONS_DIR}
+    rm -rf ${INSTALL_DIR}
+    unzip -q ${ZIP_FILE} -d ${INSTALL_DIR}
+
+    echo "Extension installed to ${INSTALL_DIR}"
+fi
