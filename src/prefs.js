@@ -31,9 +31,9 @@ const Gettext = imports.gettext.domain(Me.metadata.uuid);
 const _ = Gettext.gettext;
 
 // Preferences Pages
-const {AboutPrefPage} = PrefPages.about;
-const {CaffeinatePrefPage} = PrefPages.caffeinate;
-const {GameModePrefPage} = PrefPages.gamemode;
+const {AboutPrefPage} = PrefPages.AboutPrefs;
+const {CaffeinatePrefPage} = PrefPages.CaffeinatePrefs;
+const {GameModePrefPage} = PrefPages.GameModePrefs;
 const PrefsVisiblePage = {
     ABOUT: 0,
     CAFFINATE: 1,

@@ -24,7 +24,7 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
 // Import Modules
-const CaffeinateMenu = Me.imports.modules.CaffeinateMenu;
+const CaffeinateMenu = Me.imports.modules.QuickSettingsMenu;
 
 
 // Initialize translations
@@ -201,3 +201,4 @@ function init() {
     ExtensionUtils.initTranslations(Me.metadata.uuid);
     return new Extension();
 }
+

@@ -30,7 +30,7 @@ const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 
 // Import required modules
-const GameModeClient = Me.imports.modules.gameModeClient;
+const GameModeClient = Me.imports.modules.GameModeClient;
 
 // Logging debug and error message control
 var CAFFEINATE_DEBUG_MSG = 'Debug';
@@ -162,13 +162,13 @@ const CaffeinateToggleMenu = GObject.registerClass(
             // Entry-point for extension prefs dialogue
             this._extensionPrefsItem = new PopupMenu.PopupSeparatorMenuItem();
             this.menu.addMenuItem(this._extensionPrefsItem);
-            this._extensionPrefsItem.addAction(
+            const settingsItem = this.menu.addAction(
                 'Extension Preferences',
                 () => ExtensionUtils.openPrefs()
             );
 
             // Ensure the settings are unavailable when the screen is locked
-            this._extensionPrefsItem.visible = Main.sessionMode.allowSettings;
+            settingsItem.visible = Main.sessionMode.allowSettings;
             this.menu._settingsActions[Me.uuid] = this._extensionPrefsItem;
         }
 
@@ -335,7 +335,7 @@ var CaffeinateIndicator = GObject.registerClass(
 
             // Create the indicator
             this._indicator = this._addIndicator();
-            this._indicator.gicon = Gio.icon_new_for_string();
+            this._indicator.gicon = Gio.icon_new_for_string(`${Me.path}/icons/caffeinate-off-symbolic.svg`);
 
             // Show the indicator when enabled in settings
             this._settings.bind('show-indicator',
@@ -351,9 +351,10 @@ var CaffeinateIndicator = GObject.registerClass(
             });
 
             // Add the indicator to the panel and the toggle to the menu
-            QuickSettingsMenu._indicators.addChild(this);
+            QuickSettingsMenu._indicators.add_child(this);
             QuickSettingsMenu._addItems(this.quickSettingsItems);
         }
     }
 );
+
 
