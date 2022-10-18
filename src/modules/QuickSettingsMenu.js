@@ -119,7 +119,7 @@ const CaffeinateToggleMenu = GObject.registerClass(
          * Disconnect all Gjs connections
          */
         _disconnectAll() {
-            for (const [target, ids] of this._conncetions) {
+            for (const [target, ids] of this._connections) {
                 if (target) {
                     for (const id of ids) {
                         try {
@@ -226,7 +226,7 @@ const CaffeinateToggleMenu = GObject.registerClass(
                 );
             } else {
                 this.menu.setHeader(
-                    Gio.icon_new_for_string(`${Me.path}/icons/$caffeinate-off-symbolic.svg`),
+                    Gio.icon_new_for_string(`${Me.path}/icons/caffeinate-off-symbolic.svg`),
                     'Caffeinate [Disabled]',
                     'Enable/Disable auto-suspend and screensaver'
                 );

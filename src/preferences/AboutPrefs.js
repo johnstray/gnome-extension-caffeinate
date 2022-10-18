@@ -29,7 +29,7 @@ const ActionRow = Me.imports.preferences.switchActionRow;
 const PrefWidgetTitle = 'GameMode';
 const PrefWidgetDescription = 'Toggle Caffeination with GameMode';
 
-var GameModePrefPage = GObject.registerClass(
+var AboutPrefPage = GObject.registerClass(
     class GameModePrefWidget extends Adw.PreferencesPage {
         _init(settings) {
             super._init({
@@ -42,4 +42,5 @@ var GameModePrefPage = GObject.registerClass(
         }
     }
 );
+
 

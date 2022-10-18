@@ -119,7 +119,7 @@ class Extension {
      * Disconnect all Gjs connections
      */
     _disconnectAll() {
-        for (const [target, ids] of this._conncetions) {
+        for (const [target, ids] of this._connections) {
             if (target) {
                 for (const id of ids) {
                     try {
@@ -165,8 +165,8 @@ class Extension {
     _removeIndicator() {
         this._logMessage(CAFFEINATE_DEBUG_MSG, 'Removing indicator from QuickSettings menu');
         if (this._indicator) {
-            this.indicator.destroy();
-            this.indicator = null;
+            this._indicator.destroy();
+            this._indicator = null;
         }
     }
 
@@ -177,6 +177,10 @@ class Extension {
      */
     _toggleIndicator() {
         this._logMessage(CAFFEINATE_DEBUG_MSG, 'Toggling visibility of indicator in QuickSettings menu');
+        if (this._settings.get_boolean('show-in-quickmenu'))
+            this._addIndicator();
+        else
+            this._removeIndicator();
     }
 
     /**
